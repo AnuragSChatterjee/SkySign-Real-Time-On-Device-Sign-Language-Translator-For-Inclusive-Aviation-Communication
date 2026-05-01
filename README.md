@@ -187,8 +187,8 @@ We collected a **custom multi-subject video dataset** specifically for aviation 
 **Recording setup:**
 - Device: Samsung smartphone camera
 - Format: MP4, variable resolution
-- Sessions per subject: Anurag (1 session × 15 signs), Pramod (2 sessions × 15 signs)
-- Pramod Dataset 1 was corrupted (moov atom not found); only Dataset 2 was usable
+- Sessions per subject: Anurag (1 session × 15 signs), Pramod (1 session × 15 signs)
+- Due to file space constraints on the recording device, only one of Pramod's recording sessions was successfully used for training
 
 **Raw frame counts extracted by MediaPipe:**
 
@@ -346,7 +346,7 @@ Training time:        ~40 minutes on RPi 5
 
 ### Design Rationale: Why Two Models?
 
-Per TA feedback, comparing architectures is essential for embedded AI projects. The key insight:
+This project implements and compares two architecturally distinct models, directly addressing the course requirement to go beyond a single implementation. The key insight:
 
 - **MLP** treats landmarks as an unordered feature vector. It is faster to train, smaller in memory, and achieves comparable accuracy because the wrist-relative normalization already encodes spatial relationships.
 - **CNN** treats the 21 landmarks as a sequence, allowing the convolutional filters to learn local joint relationships (e.g., finger curl patterns). It achieves slightly higher accuracy but requires more compute.
@@ -566,6 +566,28 @@ Allergic        |             91.30%
 
 ---
 
+## System Screenshots
+
+### Camera Feed and Real-Time Inference (VNC Display)
+
+The SkySign AI VNC window shows the live phone camera stream with the predicted sign overlaid at the bottom. When no hand is detected the system displays **IDLE** in green. When a sign is recognized it switches to the sign name — red for EMERGENCY/HELP, green for all others.
+
+![SkySign Camera Feed](results/camera.jpg)
+
+### Per-Session Accuracy Report (Console Output)
+
+After each live session, the system prints a per-class accuracy report showing the average model confidence for every sign class detected during that session. This was captured from a live inference session on April 30, 2026.
+
+![Session Accuracy Results](results/Inference_Results.jpg)
+
+### Multilingual Web Dashboard (Flask REST API)
+
+The Flask dashboard is accessible from any device on the same network at `http://<pi_ip>:5000`. It polls the `/status` endpoint every 250ms and displays the recognized sign in large text with real-time translations in Arabic, Spanish, French, Hindi, and Chinese. When EMERGENCY or HELP is detected, the background pulses red.
+
+![Translation Dashboard](results/translation_interface.jpg)
+
+---
+
 ## Repository Structure
 
 ```
@@ -770,7 +792,7 @@ This limits TensorFlow to 2 CPU threads, preventing power-draw spikes that cause
 
 ## Acknowledgments
 
-This project was completed as part of **ELENE6908: Embedded AI** at Columbia University, Spring 2026, under the guidance of the course instructors and teaching assistants. We thank the course for the hardware budget that made the GPIO and display components possible.
+This project was completed as part of **ELENE6908: Embedded AI** at Columbia University, Spring 2026, under the guidance of the course instructors. We thank the course for the hardware budget that made the GPIO and display components possible.
 
 ---
 
