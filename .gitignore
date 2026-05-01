@@ -1,0 +1,11 @@
+data/raw_videos/
+data/processed/
+data/processed_link/
+data/train_ready/
+__pycache__/
+*.pyc
+.lgd-nfy0
+skysign_env/
+ls/
+*.zip
+gif_update/

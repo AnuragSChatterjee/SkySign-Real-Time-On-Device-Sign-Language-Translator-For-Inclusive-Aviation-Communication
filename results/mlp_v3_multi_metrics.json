@@ -1,0 +1,24 @@
+{
+  "model": "MLP_v3_Multi",
+  "test_accuracy": 0.9867,
+  "test_f1": 0.9867,
+  "mean_latency_ms": 0.307,
+  "model_size_kb": 693.4,
+  "classes_trained": [
+    "ALLERGIC",
+    "BATHROOM",
+    "CALL",
+    "EMERGENCY",
+    "FOOD",
+    "HELP",
+    "LANDING",
+    "PAIN",
+    "REPEAT",
+    "SEATBELT",
+    "STOP",
+    "THANK",
+    "TAKE",
+    "WATER",
+    "YES"
+  ]
+}
