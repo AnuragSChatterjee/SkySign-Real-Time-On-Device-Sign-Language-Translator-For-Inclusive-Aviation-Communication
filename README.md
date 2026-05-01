@@ -46,6 +46,8 @@
 
 The system uses **Google MediaPipe Hands** to extract 21 3D hand landmark coordinates per frame, feeds these into a quantized **TFLite INT8 CNN classifier**, and serves results via a **mobile-responsive Flask REST API dashboard** accessible from any device on the local network. Critical safety signs (EMERGENCY, HELP) trigger a **GPIO-connected LED and 440Hz buzzer** for immediate physical alerting.
 
+Refer to the README files under src/ and data/ folders to learn more about the working principles and methodologies of our data selection and codes for the project.
+
 ### Key Technical Achievements
 
 | Metric | Result | Proposal Target |
