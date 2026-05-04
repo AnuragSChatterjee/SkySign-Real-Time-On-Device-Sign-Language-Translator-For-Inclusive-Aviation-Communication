@@ -764,7 +764,7 @@ This limits TensorFlow to 2 CPU threads, preventing power-draw spikes that cause
 
 ## Report
 
-> 📄 ACM 4-page report link to be added — May 4, 2026
+> 📄 https://drive.google.com/file/d/16SVqI_kz4ztpeJM3vjC4HBHCp_eRDBcG/view?usp=drive_link
 
 **Report sections:**
 1. Introduction and Motivation
