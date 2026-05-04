@@ -751,7 +751,7 @@ This limits TensorFlow to 2 CPU threads, preventing power-draw spikes that cause
 
 ## Demo Video
 
-> 📹 Link to be added after recording — May 4, 2026
+> 📹 https://youtu.be/XqPyoHF1BbY
 
 **Demo video covers:**
 1. Live sign recognition via phone IP webcam stream
